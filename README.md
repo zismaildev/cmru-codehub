@@ -80,19 +80,19 @@ Highlighted projects demonstrating architectural decisions, pattern implementati
 
 ---
 
-## �️ Repository Map (The Codebase)
+## 🗺️ Repository Map (Course-based Portfolio)
 
-| Directory | Domain Description | Tech Status |
-| :--- | :--- | :---: |
-| **[📂 /Web](./Web)** | **Web Architecture**: MVC, Backend Logic, API Design | ⭐ Active |
-| **[📂 /Mobile](./Mobile)** | **Mobile Engineering**: State Management, MVVM, Widget Trees | ⭐ Active |
-| **[📂 /IoT](./IoT)** | **Embedded Systems**: Circuit Design, Sensor Integration, Network Protocols | 🟢 Stable |
-| **[📂 /DataScience](./DataScience)** | **Data Engineering**: ETL Pipelines, Analysis, Visualization | 🟢 Stable |
-| **[📂 /SQL](./SQL)** | **Database Design**: Schema Optimization, Complex Queries | 🟢 Stable |
-| **[📂 /SoftwareTesting](./SoftwareTesting)** | **Quality Assurance**: Automated Testing Strategies (Robot/Selenium) | 🟡 Maintenance |
-| **[📂 /Java](./Java)** | **Core Logic**: OOP Design Patterns, Algorithms | 🟢 Stable |
-| **[📂 /Python](./Python)** | **Scripting**: Automation, Utility Scripts | 🟢 Stable |
-| **[📂 /C](./C)** | **Low-Level**: Memory Management, Pointer Arithmetic | 🟢 Stable |
+| Course Code | Course Name (Topic) | Tech Stack |
+| :--- | :--- | :--- |
+| **COM 1305** | **[Computer Programming](./Computer-Programming)** | `Python` (Logic, Algo) |
+| **COM 3302** | **[Object Oriented Programming](./Object-Oriented-Programming)** | `Java` (OOP Patterns) |
+| **COM 2305** | **[Web Programming](./Web-Programming)** | `PHP` `MySQL` `HTML/CSS` |
+| **COM 2701** | **[Computer Systems & Architecture](./Computer-Systems-and-Architecture)** | `C` (Memory, Pointers) |
+| **COM 3705** | **[Internet of Things](./Internet-of-Things)** | `C++` `Arduino` `ESP8266` |
+| **COM 4304** | **[Mobile App Development](./Mobile-Application-Development)** | `Flutter` `Dart` |
+| **COM 1602** | **[Database System 1](./Database-System-1)** | `SQL` (Schema, Query) |
+| **COM 3410** | **[Fundamentals of Data Science](./Fundamentals-of-Data-Science)** | `Python` (Pandas, Scikit) |
+| **COM 4501** | **[Software Testing](./Software-Testing)** | `Robot Framework` |
 
 ---
 
