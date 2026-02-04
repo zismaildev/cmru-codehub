@@ -38,3 +38,18 @@
    flutter pub get
    flutter run
    ```
+
+## 📚 บทเรียน (Learning Modules)
+เส้นทางการเรียนรู้ตั้งแต่พื้นฐานจนถึงขั้นสูง:
+
+- **[Basic](./lab/basic/README.md)**: พื้นฐาน Widget และ Layout
+- **[Chapter 2](./lab/chapter%202/README.md)**: การรับ Input และ Dialog
+- **[Navigator](./lab/page_navigator/README.md)**: การเปลี่ยนหน้า (Navigation)
+- **[State Management](./lab/state_management/README.md)**: การจัดการ State ด้วย Provider (Workshop: Fruit Shop)
+- **[Menu](./lab/menu/README.md)**: Workshop สร้างหน้ารายการอาหาร
+
+## 📝 งานที่มอบหมาย (Assignments & Quiz)
+แบบฝึกหัดทบทวนความรู้:
+- **[Assignment 1](./assignment/assignment%201/README.md)**: Logic & Math in Dart
+- **[Assignment 2](./assignment/assignment%202/README.md)**: Advanced Dart Logic
+- **[Quiz](./assignment/quiz/README.md)**: แบบทดสอบความรู้
