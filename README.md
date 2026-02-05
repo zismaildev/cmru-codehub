@@ -80,19 +80,35 @@ Highlighted projects demonstrating architectural decisions, pattern implementati
 
 ---
 
+## 🚀 Getting Started (สำหรับรุ่นน้องและผู้สนใจ)
+
+เพื่อให้การศึกษา Source Code ใน Portfolio นี้เป็นไปได้อย่างราบรื่น แนะนำให้เตรียม Environment ดังนี้ครับ:
+
+### 🛠️ Recommended Tools
+- **IDE:** [VS Code](https://code.visualstudio.com/) (แนะนำติดตั้ง Extension ตามภาษาที่สนใจ)
+- **Version Control:** [Git](https://git-scm.com/)
+- **Database:** [XAMPP](https://www.apachefriends.org/) หรือ [Docker](https://www.docker.com/) (สำหรับ MySQL)
+
+### 📂 How to Explore
+1. **Choose a Course:** เลือกรายวิชาจากตารางด้านล่างตามความสนใจ
+2. **Read the Docs:** เข้าไปอ่าน `README.md` ของวิชานั้นๆ เพื่อดูวิธีการรันและสิ่งที่ต้องเตรียม (เช่น Library หรือ Database Schema)
+3. **Database Setup:** หากวิชานั้นมี Database (เช่น SQL หรือ Web) ไฟล์ Schema มักจะอยู่ในโฟลเดอร์ `lab/` หรือ `database/` ให้ Import เข้า phpMyAdmin ก่อนรัน
+
+---
+
 ## 🗺️ Repository Map (Course-based Portfolio)
 
 | Course Code | Course Name (Topic) | Tech Stack |
 | :--- | :--- | :--- |
-| **COM 1305** | **[Computer Programming](./Computer-Programming)** | `Python` (Logic, Algo) |
-| **COM 3302** | **[Object Oriented Programming](./Object-Oriented-Programming)** | `Java` (OOP Patterns) |
-| **COM 2305** | **[Web Programming](./Web-Programming)** | `PHP` `MySQL` `HTML/CSS` |
-| **COM 2701** | **[Computer Systems & Architecture](./Computer-Systems-and-Architecture)** | `C` (Memory, Pointers) |
-| **COM 3705** | **[Internet of Things](./Internet-of-Things)** | `C++` `Arduino` `ESP8266` |
-| **COM 4304** | **[Mobile App Development](./Mobile-Application-Development)** | `Flutter` `Dart` |
-| **COM 1602** | **[Database System 1](./Database-System-1)** | `SQL` (Schema, Query) |
-| **COM 3410** | **[Fundamentals of Data Science](./Fundamentals-of-Data-Science)** | `Python` (Pandas, Scikit) |
-| **COM 4501** | **[Software Testing](./Software-Testing)** | `Robot Framework` |
+| **COM 1305** | **[Computer Programming](./Computer-Programming)** | [![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/) |
+| **COM 3302** | **[Object Oriented Programming](./Object-Oriented-Programming)** | [![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)](https://www.java.com/) |
+| **COM 2305** | **[Web Programming](./Web-Programming)** | [![PHP](https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white)](https://www.php.net/) [![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)](https://www.mysql.com/) |
+| **COM 2701** | **[Computer Systems & Architecture](./Computer-Systems-and-Architecture)** | [![C](https://img.shields.io/badge/C-A8B9CC?style=for-the-badge&logo=c&logoColor=white)](https://gcc.gnu.org/) |
+| **COM 3705** | **[Internet of Things](./Internet-of-Things)** | [![Arduino](https://img.shields.io/badge/Arduino-00979D?style=for-the-badge&logo=arduino&logoColor=white)](https://www.arduino.cc/) [![C++](https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=cplusplus&logoColor=white)](https://isocpp.org/) |
+| **COM 4304** | **[Mobile App Development](./Mobile-Application-Development)** | [![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)](https://flutter.dev/) [![Dart](https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white)](https://dart.dev/) |
+| **COM 1602** | **[Database System 1](./Database-System-1)** | [![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)](https://www.mysql.com/) |
+| **COM 3410** | **[Fundamentals of Data Science](./Fundamentals-of-Data-Science)** | [![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/) [![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)](https://pandas.pydata.org/) |
+| **COM 4501** | **[Software Testing](./Software-Testing)** | [![Robot Framework](https://img.shields.io/badge/Robot%20Framework-00C0B5?style=for-the-badge&logo=robot-framework&logoColor=white)](https://robotframework.org/) |
 
 ---
 
