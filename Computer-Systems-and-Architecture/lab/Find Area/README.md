@@ -1,40 +1,115 @@
-# 📐 Area Calculation Logic
+# 📐 C Programming Lab: Find Area
 
 <div align="center">
 
-![Language](https://img.shields.io/badge/Language-C_Programming-A8B9CC?style=for-the-badge)
-![Concept](https://img.shields.io/badge/Concept-Modular_Programming-green?style=for-the-badge)
+![Language](https://img.shields.io/badge/Language-C-A8B9CC?style=for-the-badge&logo=c)
+![Topic](https://img.shields.io/badge/Topic-Math_Functions-blue?style=for-the-badge)
+
+**"Mathematical Calculations in C"**
 
 </div>
 
 ---
 
-## 🎯 Problem Statement
-โปรแกรมคำนวณพื้นที่ (Area) ของรูปทรงต่างๆ เช่น วงกลม, สี่เหลี่ยม, และสามเหลี่ยม โดยเน้นการใช้ **User Input** และการแยก **Function**
+## 🎯 Learning Objectives
 
-## 🏗️ Algorithm Flow
+- ใช้สูตรคณิตศาสตร์ใน C
+- ทำงานกับ float และ double
+- รับ Input และแสดงผล
+- ใช้ printf formatting
 
-```mermaid
-graph LR
-    Input[Select Shape] --> Switch{Switch Case}
-    Switch -- 1 --> Circle[Area = πr²]
-    Switch -- 2 --> Rect[Area = w * h]
-    Switch -- 3 --> Tri[Area = 0.5 * b * h]
-    Circle --> Result[/Display Result/]
-    Rect --> Result
-    Tri --> Result
+---
+
+## 📝 Problems
+
+### ข้อ 1: พื้นที่สี่เหลี่ยมผืนผ้า
+```c
+#include <stdio.h>
+
+int main() {
+    float width, height, area;
+    
+    printf("Enter width: ");
+    scanf("%f", &width);
+    
+    printf("Enter height: ");
+    scanf("%f", &height);
+    
+    area = width * height;
+    
+    printf("Area = %.2f\n", area);
+    return 0;
+}
 ```
 
-## 💻 Tech Implementation
-Using `#define` macros for constants and `switch-case` for menu selection.
-
+### ข้อ 2: พื้นที่วงกลม
 ```c
+#include <stdio.h>
 #define PI 3.14159
 
-void main() {
-    int choice;
-    printf("1. Circle\n2. Rectangle\nChoose: ");
-    scanf("%d", &choice);
-    // ... logic inside switch
+int main() {
+    float radius, area;
+    
+    printf("Enter radius: ");
+    scanf("%f", &radius);
+    
+    area = PI * radius * radius;
+    
+    printf("Area = %.2f\n", area);
+    return 0;
 }
+```
+
+### ข้อ 3: พื้นที่สามเหลี่ยม
+```c
+#include <stdio.h>
+
+int main() {
+    float base, height, area;
+    
+    printf("Enter base: ");
+    scanf("%f", &base);
+    
+    printf("Enter height: ");
+    scanf("%f", &height);
+    
+    area = 0.5 * base * height;
+    
+    printf("Area  = %.2f\n", area);
+    return 0;
+}
+```
+
+---
+
+## 💡 Key Concepts
+
+### Data Types for Numbers
+| Type | Size | Range | Format |
+|:---|:---:|:---|:---:|
+| `int` | 4 bytes | -2B to 2B | `%d` |
+| `float` | 4 bytes | 6-7 digits | `%f` |
+| `double` | 8 bytes | 15-16 digits | `%lf` |
+
+### scanf() and printf()
+```c
+// Input
+int x;
+scanf("%d", &x);  // ต้องใส่ &
+
+float y;
+scanf("%f", &y);  // ต้องใส่ &
+
+// Output
+printf("x = %d\n", x);
+printf("y = %.2f\n", y);  // .2f = 2 ทศนิยม
+```
+
+---
+
+## 🚀 Compile & Run
+
+```bash
+gcc find_area.c -o find_area
+./find_area
 ```

@@ -163,25 +163,37 @@ Software-Testing/
 
 ---
 
-## 📚 Lab Topics
+## 📚 โครงสร้างรายวิชา
 
-### 🟢 Weeks 1-4: Testing Basics
-- **Lab 1**: Introduction to Software Testing
-- **Lab 2**: Test Case Design Techniques
-- **Lab 3**: Boundary Value & Equivalence
-- **Lab 4**: Decision Table Testing
+> **หมายเหตุ:** วิชานี้เน้นทดลองปฏิบัติผ่าน Mini Project มากกว่า Lab แยกรายสัปดาห์
 
-### 🟡 Weeks 5-8: Robot Framework
-- **Lab 5**: Robot Framework Basics
-- **Lab 6**: Web Testing with Selenium
-- **Lab 7**: API Testing
-- **Lab 8**: Custom Keywords
+### 🎯 Learning Journey
+1. **Weeks 1-4**: ทฤษฎี - Test Design, Test Case Writing
+2. **Weeks 5-8**: Robot Framework Basics, SeleniumLibrary
+3. **Weeks 9-12**: Mini Project - Complete Test Automation Suite
 
-### 🟠 Weeks 9-12: Advanced Automation
-- **Lab 9**: Data-Driven Testing
-- **Lab 10**: Page Object Pattern
-- **Lab 11**: CI/CD Integration
-- **Lab 12**: Final Project - Complete Test Suite
+---
+
+## 🏆 Mini Project
+
+โปรเจกต์หลักของวิชานี้ที่รวม Concept ทั้งหมด อยู่ใน [`mini-project/`](./mini-project/)
+
+### Test Automation Project
+**ระบบทดสอบอัตโนมัติแบบครบวงจร**
+
+ประกอบด้วย:
+- **Web Testing**: ทดสอบ UI ด้วย SeleniumLibrary
+- **API Testing**: ทดสอบ REST API ด้วย RequestsLibrary
+- **Test Cases**: ครอบคลุม Login, CRUD Operations, Search
+- **Reports**: HTML Reports พร้อม Screenshots
+- **CI/CD Ready**: พร้อม integrate กับ Jenkins/GitHub Actions
+
+**Test Scenarios:**
+- User Authentication (Login/Logout)
+- Product Management (Add/Edit/Delete)
+- Search Functionality
+- Form Validation
+- Error Handling
 
 ---
 

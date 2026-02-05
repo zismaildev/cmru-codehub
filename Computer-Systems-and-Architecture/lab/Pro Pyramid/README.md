@@ -1,56 +1,139 @@
-# 🌟 Advanced Pyramid Patterns
+# ⭐ C Programming Lab: Pyramid Patterns
 
 <div align="center">
 
-![Language](https://img.shields.io/badge/Language-C_Programming-A8B9CC?style=for-the-badge)
-![Difficulty](https://img.shields.io/badge/Difficulty-Hard-red?style=for-the-badge)
+![Language](https://img.shields.io/badge/Language-C-A8B9CC?style=for-the-badge&logo=c)
+![Topic](https://img.shields.io/badge/Topic-Nested_Loops-purple?style=for-the-badge)
 
-**"Mastering Complex Nested Loops Logic"**
+**"Master the Art of Pattern Printing"**
 
 </div>
 
 ---
 
-## 🎯 Problem Statement
-การสร้างรูปทรงเรขาคณิตด้วยตัวอักษรเป็นแบบฝึกหัดคลาสสิกที่ทดสอบความเข้าใจเรื่อง **Algorithm Design** โจทย์นี้ยกระดับความยากจากพีระมิดปกติ เป็นการรวม 3 รูปแบบไว้ในเมนูเดียว
+## 🎯 Learning Objectives
 
-## 🏗️ Algorithm Flowchart
+- ใช้ Nested Loops (for ซ้อน for)
+- พิมพ์ Pattern ด้วยดาว (*)
+- Algorithm Thinking
+- ควบคุม Loop อย่างแม่นยำ
 
-```mermaid
-graph TD
-    Start([Start]) --> Menu[/Display Menu 1-3/]
-    Menu --> Input[/Select Pattern/]
-    Input --> Switch{Switch Choice}
-    Switch -- 1 --> P1[Inverted Triangle]
-    Switch -- 2 --> P2[Right-Aligned Triangle]
-    Switch -- 3 --> P3[Full Diamond/Pyramid]
-    P1 --> Logic1[Loop i=N to 1]
-    P2 --> Logic2[Loop Space then Star]
-    P3 --> Logic3[Complex Formula]
-    Logic1 --> End([End])
-    Logic2 --> End
-    Logic3 --> End
+---
+
+## 📝 Patterns
+
+### Pattern 1: Right Triangle
+```c
+#include <stdio.h>
+
+int main() {
+    int n = 5;
+    
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= i; j++) {
+            printf("* ");
+        }
+        printf("\n");
+    }
+    return 0;
+}
 ```
 
-## 💻 Logic Breakdown
+**Output:**
+```
+* 
+* * 
+* * * 
+* * * * 
+* * * * * 
+```
 
-### Pattern 3: Full Pyramid
-ต้องจัดการ Loop 3 ส่วน: บรรทัด (`i`), ช่องว่าง (`space`), และดาว (`star`)
-
+### Pattern 2: Inverted Triangle
 ```c
-for(int i = 1; i <= rows; i++) {
-    // 1. Print Leading Spaces
-    for(int space = 1; space <= rows-i; space++) {
-        printf(" ");
-    }
-    // 2. Print Stars (Odd Number Sequence: 1, 3, 5...)
-    for(int star = 1; star <= (2*i-1); star++) {
-        printf("*");
+for (int i = n; i >= 1; i--) {
+    for (int j = 1; j <= i; j++) {
+        printf("* ");
     }
     printf("\n");
 }
 ```
 
-## 💡 Key Learnings
-- **Space-Star Relationship**: ความสัมพันธ์แบบผกผันระหว่างบรรทัดและช่องว่าง (บรรทัดเพิ่ม = ช่องว่างลด)
-- **Mathematical Series**: การใช้อนุกรมเลขคณิต `2n-1` เพื่อหาจำนวนดาว
+**Output:**
+```
+* * * * * 
+* * * * 
+* * * 
+* * 
+* 
+```
+
+### Pattern 3: Pyramid (Centered)
+```c
+for (int i = 1; i <= n; i++) {
+    // Print spaces
+    for (int j = 1; j <= n - i; j++) {
+        printf("  ");
+    }
+    // Print stars
+    for (int k = 1; k <= (2 * i - 1); k++) {
+        printf("* ");
+    }
+    printf("\n");
+}
+```
+
+**Output:**
+```
+        * 
+      * * * 
+    * * * * * 
+  * * * * * * * 
+* * * * * * * * * 
+```
+
+### Pattern 4: Diamond
+```c
+// Top half
+for (int i = 1; i <= n; i++) {
+    for (int j = 1; j <= n - i; j++) printf("  ");
+    for (int k = 1; k <= (2 * i - 1); k++) printf("* ");
+    printf("\n");
+}
+
+// Bottom half
+for (int i = n - 1; i >= 1; i--) {
+    for (int j = 1; j <= n - i; j++) printf("  ");
+    for (int k = 1; k <= (2 * i - 1); k++) printf("* ");
+    printf("\n");
+}
+```
+
+---
+
+## 💡 Key Concepts
+
+### Nested Loop Structure
+```c
+for (int i = 1; i <= rows; i++) {      // Outer: แถว
+    for (int j = 1; j <= cols; j++) {  // Inner: คอลัมน์
+        // Logic here
+    }
+    printf("\n");  // ขึ้นบรรทัดใหม่
+}
+```
+
+### Pattern Formula
+| Pattern | Spaces | Stars |
+|:---|:---|:---|
+| Right Triangle | 0 | i |
+| Inverted | 0 | n - i + 1 |
+| Pyramid | n - i | 2*i - 1 |
+
+---
+
+## 🚀 Compile & Run
+
+```bash
+gcc pyramid.c -o pyramid
+./pyramid
+```

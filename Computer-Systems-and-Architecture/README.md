@@ -161,25 +161,37 @@ Computer-Systems-and-Architecture/
 
 ---
 
-## 📚 Lab Topics (ตัวอย่าง)
+## 📚 Lab Topics
 
-### 🟢 Weeks 1-4: C Basics
-- **Lab 1**: Hello World, Input/Output
-- **Lab 2**: Data Types, Operators
-- **Lab 3**: Control Flow (if, for, while)
-- **Lab 4**: Arrays & Strings
+### 🟢 C Programming Fundamentals
 
-### 🟡 Weeks 5-8: Pointers & Memory
-- **Lab 5**: Introduction to Pointers
-- **Lab 6**: Pointer Arithmetic
-- **Lab 7**: Dynamic Memory (malloc, free)
-- **Lab 8**: Struct & Union
+#### [Change Values](./lab/Change%20Values/)
+**การสลับค่าตัวแปร** (Variable Swapping)
+- ฝึกการสลับค่าระหว่างตัวแปร 2 ตัว
+- เข้าใจ Temporary Variable
+- Pass by Value vs Pass by Reference
 
-### 🟠 Weeks 9-12: Advanced Topics
-- **Lab 9**: File I/O
-- **Lab 10**: Linked List (Dynamic Data Structure)
-- **Lab 11**: Bit Manipulation
-- **Lab 12**: Mini Project
+#### [Find Area](./lab/Find%20Area/)
+**คำนวณพื้นที่รูปทรง**
+- การใช้สูตรคณิตศาสตร์ใน C
+- การรับ Input และแสดงผล
+- การใช้ตัวแปร `float` และ `double`
+
+### 🟡 Algorithms & Patterns
+
+#### [Pyramid](./lab/Pyramid/)
+**สร้างรูปทรง Pyramid ด้วย Loop**
+- ฝึก Nested Loops (for ซ้อน for)
+- การพิมพ์ Pattern ด้วยดาว (*)
+- Algorithm Thinking
+
+#### [Pro Pyramid](./lab/Pro%20Pyramid/)
+**Pyramid ขั้นสูง** (Advanced Patterns)
+- สร้าง Pattern ที่ซับซ้อนขึ้น
+- การควบคุม Loop อย่างแม่นยำ
+- การออกแบบ Algorithm สำหรับ Pattern
+
+> **หมายเหตุ:** Labs เหล่านี้เน้นฝึกพื้นฐาน C และ Algorithm Thinking ซึ่งเป็นรากฐานสำคัญของ Computer Systems
 
 ---
 

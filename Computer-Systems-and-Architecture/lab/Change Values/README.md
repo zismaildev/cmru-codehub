@@ -1,49 +1,110 @@
-# 📏 Unit Converter Application
+# 🔧 C Programming Lab: Change Values
 
 <div align="center">
 
-![Language](https://img.shields.io/badge/Language-C_Programming-A8B9CC?style=for-the-badge)
-![Type](https://img.shields.io/badge/Type-Utility-green?style=for-the-badge)
+![Language](https://img.shields.io/badge/Language-C-A8B9CC?style=for-the-badge&logo=c)
+![Topic](https://img.shields.io/badge/Topic-Variable_Swapping-orange?style=for-the-badge)
 
-**"Metric to Imperial Unit Conversion Logic"**
+**"Understanding Pass by Value vs Pass by Reference"**
 
 </div>
 
 ---
 
-## 🎯 Problem Statement
-โปรแกรมแปลงหน่วยวัด (Unit Conversion) เป็นตัวอย่างที่ดีของการประยุกต์ใช้คณิตศาสตร์ร่วมกับเงื่อนไขทางโปรแกรม โจทย์คือการสร้างเครื่องมือแปลงค่าระหว่าง **นิ้ว (Inches)** และ **เมตร (Meters)**
+## 🎯 Learning Objectives
 
-## 🏗️ Process Diagram
+- เข้าใจการสลับค่าตัวแปร (Variable Swapping)
+- รู้จัก Temporary Variable
+- เข้าใจ Pass by Value vs Pass by Reference
+- ใช้ Pointers เบื้องต้น
 
-```mermaid
-sequenceDiagram
-    participant User
-    participant Program
-    
-    User->>Program: Select Mode (1: Inch->Meter, 2: Meter->Inch)
-    User->>Program: Input Value
-    alt Mode 1
-        Program->>Program: Result = Value * 0.0254
-    else Mode 2
-        Program->>Program: Result = Value / 0.0254
-    end
-    Program-->>User: Display Formatted Result (%.4f)
-```
+---
 
-## 💻 Code Snippet
-Constants defined for precision and maintainability.
+## 📝 Problem: Swap Two Variables
 
+### วิธีที่ 1: ใช้ Temporary Variable
 ```c
-#define INCH_TO_METER 0.0254
+#include <stdio.h>
 
-if (choice == 1) {
-    printf("%.4f inches = %.4f meters", val, val * INCH_TO_METER);
-} else {
-    printf("%.4f meters = %.4f inches", val, val / INCH_TO_METER);
+int main() {
+    int a = 10;
+    int b = 20;
+    int temp;
+    
+    printf("Before: a=%d, b=%d\n", a, b);
+    
+    // Swap
+    temp = a;
+    a = b;
+    b = temp;
+    
+    printf("After: a=%d, b=%d\n", a, b);
+    return 0;
 }
 ```
 
-## 💡 Key Learnings
-- **Floating Point Precision**: การใช้ `double` และ `%.4f` เพื่อจัดการทศนิยมให้แม่นยำ
-- **Constants Definition**: การใช้ `#define` แทน Magic Number ในสูตรคำนวณ
+**Output:**
+```
+Before: a=10, b=20
+After: a=20, b=10
+```
+
+### วิธีที่ 2: ใช้ Function (Pass by Reference)
+```c
+#include <stdio.h>
+
+void swap(int *x, int *y) {
+    int temp = *x;
+    *x = *y;
+    *y = temp;
+}
+
+int main() {
+    int a = 10, b = 20;
+    
+    printf("Before: a=%d, b=%d\n", a, b);
+    swap(&a, &b);  // ส่ง address
+    printf("After: a=%d, b=%d\n", a, b);
+    
+    return 0;
+}
+```
+
+---
+
+## 💡 Key Concepts
+
+### Pass by Value
+```c
+void func(int x) {
+    x = 100;  // เปลี่ยนแค่ copy ไม่กระทบต้นฉบับ
+}
+
+int main() {
+    int a = 10;
+    func(a);
+    printf("%d", a);  // ยังเป็น 10
+}
+```
+
+### Pass by Reference (ใช้ Pointer)
+```c
+void func(int *x) {
+    *x = 100;  // เปลี่ยนค่าจริง
+}
+
+int main() {
+    int a = 10;
+    func(&a);  // ส่ง address
+    printf("%d", a);  // เป็น 100
+}
+```
+
+---
+
+## 🚀 Compile & Run
+
+```bash
+gcc change_values.c -o change_values
+./change_values
+```

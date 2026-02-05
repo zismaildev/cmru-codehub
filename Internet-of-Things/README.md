@@ -173,61 +173,76 @@ Internet-of-Things/
 
 ## 📚 Lab & Workshops
 
-### 🟢 Level 1: Arduino & Sensors
-**Lab3: Temperature & Distance**
+### 🟢 Arduino & Sensors (พื้นฐาน)
+
+#### [Lab3](./lab/Lab3/) - Temperature & Distance Sensors
+**เซ็นเซอร์อุณหภูมิและระยะทาง**
 - อ่านค่าอุณหภูมิจาก DHT11
-- วัดระยะทางด้วย Ultrasonic
+- วัดระยะทางด้วย Ultrasonic (HC-SR04)
 - แสดงผลบน Serial Monitor
 
-### 🟡 Level 2: WiFi & Internet
-**Lab4: ESP8266 Basics**
-- เชื่อมต่อ WiFi
-- ส่งข้อมูลไป Server (HTTP POST)
-- รับคำสั่งจาก Web
+#### [Lab4](./lab/Lab4/) - ESP8266 WiFi & Sensors
+**การเชื่อมต่อ WiFi และรวม Sensors**
+- เชื่อมต่อ ESP8266 กับ WiFi
+- อ่านค่าจาก Sensors หลายตัวพร้อมกัน
+- ส่งข้อมูลผ่าน HTTP
 
-**workshop1: Web-Controlled LED**
+#### [Lab5](./lab/Lab5/) - MQTT Communication
+**การสื่อสาร IoT ด้วย MQTT Protocol**
+- ใช้ MQTT Broker
+- Publish sensor data แบบ Real-time
+- Subscribe และรับข้อมูล
+
+### 🟡 Workshops - Integration Projects
+
+#### [workshop1](./lab/workshop1/) - Web-Controlled LED
+**ควบคุม LED ผ่านเว็บบราว์เซอร์**
 - สร้าง Web Server บน ESP8266
-- เปิด-ปิดไฟผ่านเว็บบราวเซอร์
+- HTML Interface สำหรับควบคุม
+- Real-time ON/OFF Control
 
-### 🟠 Level 3: MQTT & Integration
-**Lab5 & workshop2: MQTT Dashboard**
-- ใช้ MQTT Broker (Mosquitto)
-- Publish sensor data
-- Subscribe กับ Web Dashboard
-
-**workshop3: Advanced Integration**
-- รวม Sensors หลายตัว
+#### [workshop2](./lab/workshop2/) - Sensor Dashboard
+**แดชบอร์ดแสดงข้อมูล Sensor**
 - Dashboard แบบ Real-time
-- อัตโนมัติด้วย Logic (ถ้าอุณหภูมิ > 30 → เปิดพัดลม)
+- แสดงกราฟและข้อมูลสถิติ
+- การบันทึกข้อมูล (Data Logging)
+
+#### [workshop3](./lab/workshop3/) - Advanced IoT Integration
+**โปรเจกต์ IoT ขั้นสูง**
+- รวม Sensors และ Actuators หลายตัว
+- Logic อัตโนมัติ (ถ้า temp > 30 → เปิดพัดลม)
+- Web Dashboard + MQTT + Database
 
 ---
 
-## 🏆 Mini Project: Smart Home System
+## 🏆 Mini Project
 
-**smart-home-final/**
+### [Smart Home System](./mini-project/smart-home-final/)
 
-ระบบบ้านอัจฉริยะที่ควบคุมผ่าน Web Dashboard
+**ระบบบ้านอัจฉริยะ** - IoT Integration Project
 
-### Features
-- 🌡️ **Temperature Monitoring**: แสดงอุณหภูมิและความชื้นแบบ Real-time
-- 💡 **Light Control**: เปิด-ปิดไฟผ่านเว็บ
-- 🚪 **Door Security**: แจ้งเตือนเมื่อมีคนเข้า-ออก
-- 📊 **Data Logging**: บันทึกข้อมูลลงฐานข้อมูล
+ระบบควบคุมและติดตามแบบครบวงจร ประกอบด้วย:
+
+**Features:**
+- 🌡️ **Temperature & Humidity Monitoring**: DHT11 Sensor
+- 💡 **Light Control**: เปิด-ปิดไฟผ่าน Relay Module
+- 🚪 **Motion Detection**: PIR Sensor สำหรับตรวจจับความเคลื่อนไหว
+- 📊 **Web Dashboard**: แสดงข้อมูลแบบ Real-time
 - 📱 **Mobile Responsive**: ใช้งานได้ทั้ง Desktop/Mobile
+- 🔔 **Alerts**: แจ้งเตือนเมื่อเกิดเหตุการณ์
 
-### Hardware Components
+**Hardware:**
 - ESP8266 (NodeMCU)
 - DHT11 (Temperature & Humidity)
-- PIR Sensor (Motion)
-- Relay Module (สำหรับควบคุมไฟ)
-- Ultrasonic Sensor (ระยะทาง)
+- PIR Motion Sensor
+- Relay Module
+- LED Indicators
 
-### Software Stack
-- **Firmware**: C++ (Arduino IDE)
-- **MQTT Broker**: Mosquitto
-- **Backend**: PHP/Node.js
-- **Frontend**: HTML/CSS/JavaScript
-- **Database**: MySQL
+**Software Stack:**
+- Firmware: C++ (Arduino IDE)
+- Communication: MQTT Protocol
+- Dashboard: HTML/CSS/JavaScript
+- Backend: Node.js / PHP (optional)
 
 ---
 

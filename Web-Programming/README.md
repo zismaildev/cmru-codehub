@@ -164,49 +164,59 @@ Web-Programming/
 ## 📚 Lab Modules
 
 ### 🟢 Level 1: Static Web (Frontend)
-**static-web/**
-- ฝึกเขียน HTML Tags
-- ออกแบบหน้าเว็บด้วย CSS
+
+#### [static-web/](./lab/static-web/)
+**HTML/CSS/JavaScript - หน้าเว็บแบบ Static**
+- ฝึกเขียน HTML Tags และ Semantic HTML
+- ออกแบบหน้าเว็บด้วย CSS (Flexbox, Grid)
 - เพิ่ม Interaction ด้วย JavaScript
 - สร้างหน้า Portfolio/Landing Page
+- Responsive Design สำหรับ Mobile
 
 ### 🟡 Level 2: Dynamic PHP
-**legacy-php/**
+
+#### [legacy-php/](./lab/legacy-php/)
+**PHP Programming Fundamentals**
 - ฝึกพื้นฐาน PHP (Variables, Loops, Functions)
 - Form Handling ($_GET, $_POST)
-- Session & Cookie Management
-- File Upload
+- Session & Cookie Management  
+- File Upload และการจัดการไฟล์
+- include/require สำหรับ Code Organization
 
 ### 🟠 Level 3: Database Integration
-**database-connection/**
-- เชื่อมต่อ PHP กับ MySQL
+
+#### [database-connection/](./lab/database-connection/)
+**PHP + MySQL Integration**
+- เชื่อมต่อ PHP กับ MySQL (mysqli, PDO)
 - CRUD Operations (Create, Read, Update, Delete)
 - Login System พื้นฐาน
-- User Management
+- User Management และ Authentication
+- Prepared Statements (ป้องกัน SQL Injection)
 
 ---
 
-## 🏆 Mini Project: E-Commerce System
+## 🏆 Mini Project
 
-**ecommerce-system/**
+### [E-Commerce System](./mini-project/ecommerce-system/)
 
-ระบบร้านค้าออนไลน์แบบครบวงจร ประกอบด้วย:
+**ระบบร้านค้าออนไลน์แบบครบวงจร** - Full Stack Web Application
 
-### Features
-- 🛍️ **Product Catalog**: แสดงสินค้าทั้งหมด
-- 🔍 **Search & Filter**: ค้นหาและกรองสินค้า
+ประกอบด้วย:
+
+**Features:**
+- 🛍️ **Product Catalog**: แสดงสินค้าทั้งหมด พร้อมรูปภาพ
+- 🔍 **Search & Filter**: ค้นหาและกรองสินค้าตามหมวดหมู่
 - 🛒 **Shopping Cart**: ตะกร้าสินค้า (Session-based)
 - 👤 **User Authentication**: สมัครสมาชิก/เข้าสู่ระบบ
 - 📦 **Order Management**: จัดการคำสั่งซื้อ
 - 🔐 **Admin Panel**: ส่วนจัดการสำหรับผู้ดูแล
 
-### Database Schema
-```sql
-- users (id, username, password, email)
-- products (id, name, price, stock, image)
-- orders (id, user_id, total, status, date)
-- order_items (id, order_id, product_id, quantity)
-```
+**Tech Stack:**
+- Frontend: HTML5, CSS3, JavaScript
+- Backend: PHP
+- Database: MySQL
+- Session Management
+- Security: Password Hashing, SQL Injection Prevention
 
 ---
 

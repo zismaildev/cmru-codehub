@@ -8,7 +8,9 @@
 
 **"Architecting scalable, robust, and maintainable ecosystems."**
 
-[LinkedIn](#) • [Email](#) • [System Design Portfolio](#)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/nattapong-panthiya-29a3a3330/)
+[![Email](https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:nattapong130247@gmail.com)
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/zismaildev)
 
 </div>
 
@@ -112,7 +114,21 @@ Highlighted projects demonstrating architectural decisions, pattern implementati
 
 ---
 
+## 📬 Contact & Connect
+
 <div align="center">
-  <p><i>"Architecting the future, one line of code at a time."</i></p>
-  <p>© 2026 Nattapong Panthiya</p>
+
+### Let's Build Something Amazing Together!
+
+ฉันยินดีรับฟังโอกาสในการทำงาน, คำแนะนำ, หรือคำถามเกี่ยวกับโปรเจคต่างๆ
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/nattapong-panthiya-29a3a3330/)
+[![Email](https://img.shields.io/badge/Email-Send%20Message-EA4335?style=for-the-badge&logo=gmail)](mailto:nattapong130247@gmail.com)
+[![GitHub](https://img.shields.io/badge/GitHub-Follow-181717?style=for-the-badge&logo=github)](https://github.com/zismaildev)
+
+---
+
+<p><i>"Architecting the future, one line of code at a time."</i></p>
+<p><b>© 2026 Nattapong Panthiya</b> | Computer Science Student | Software Architect</p>
+
 </div>

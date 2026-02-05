@@ -212,25 +212,48 @@ Database-System-1/
 
 ---
 
-## 📚 Lab Topics
+## 📚 Lab SQL Scripts
 
-### 🟢 Weeks 1-4: Database Design
-- **Lab 1**: Introduction to Databases
-- **Lab 2**: ER Diagram Design
-- **Lab 3**: Normalization (1NF, 2NF, 3NF)
-- **Lab 4**: CREATE TABLE, Data Types
+วิชานี้มี Lab SQL Scripts ที่ฝึกทั้ง DDL และ DML รายสัปดาห์:
 
-### 🟡 Weeks 5-8: SQL Basics
-- **Lab 5**: SELECT, WHERE, ORDER BY
-- **Lab 6**: INSERT, UPDATE, DELETE
-- **Lab 7**: Joins (INNER, LEFT, RIGHT)
-- **Lab 8**: Aggregate Functions
+### SQL Practice Files
 
-### 🟠 Weeks 9-12: Advanced SQL
-- **Lab 9**: Subqueries
-- **Lab 10**: Views & Indexes
-- **Lab 11**: Transactions
-- **Lab 12**: Final Project - Complete Database Design
+#### [2023.11.27.sql](./lab/2023.11.27.sql)
+**พื้นฐาน SQL** - การเริ่มต้น
+- CREATE DATABASE และ CREATE TABLE
+- INSERT ข้อมูลพื้นฐาน
+- SELECT แบบง่าย
+
+#### [2023.12.4.sql](./lab/2023.12.4.sql)
+**WHERE และ Operators**
+- การกรองข้อมูลด้วย WHERE
+- Comparison Operators (=, <, >, BETWEEN)
+- LIKE สำหรับค้นหา Pattern
+
+#### [2024.1.22.sql](./lab/2024.1.22.sql)
+**Aggregate Functions**
+- COUNT, SUM, AVG, MAX, MIN
+- GROUP BY และ HAVING
+- สถิติพื้นฐาน
+
+#### [2024.1.29.sql](./lab/2024.1.29.sql)
+**Joins - เชื่อมตาราง**
+- INNER JOIN
+- LEFT JOIN และ RIGHT JOIN
+- Multiple Table Joins
+
+#### [2024.2.5.sql](./lab/2024.2.5.sql) & [2024.2.5.2.sql](./lab/2024.2.5.2.sql)
+**Advanced Queries**
+- Subqueries (Query ซ้อน Query)
+- UNION และ INTERSECT
+- Complex Data Retrieval
+
+#### [Main Database.sql](./lab/Main%20Database%20.sql)
+**Main Schema** - ฐานข้อมูลหลัก
+- โครงสร้างฐานข้อมูลที่สมบูรณ์
+- Sample Data สำหรับฝึกหัด
+
+> **วิธีใช้งาน:** เปิดไฟล์ .sql ด้วย MySQL Workbench หรือรันผ่าน Command Line: `mysql -u root -p < filename.sql`
 
 ---
 

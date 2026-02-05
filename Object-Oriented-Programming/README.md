@@ -131,49 +131,78 @@ Object-Oriented-Programming/
 ## 📚 Lab & Workshops
 
 ### 🟢 Level 1: Java Fundamentals
-**Basic Apps**
-- ฝึกพื้นฐาน Java Syntax
-- การรับและแสดงผล (Scanner, System.out)
-- Primitive Types vs Objects
 
-**Logic and Math**
+#### [Basic Apps](./lab/Basic%20Apps/)
+พื้นฐาน Java Programming
+- ฝึก Java Syntax และโครงสร้างพื้นฐาน
+- การรับและแสดงผล (Scanner, System.out)
+- Primitive Types vs Reference Types
+- การประกาศตัวแปรและ Method
+
+#### [Logic and Math](./lab/Logic%20and%20Math/)
+การคำนวณและ Logic ด้วย OOP
 - การคำนวณทางคณิตศาสตร์
-- ใช้ Math Library
+- การใช้ Math Library
 - ฝึกเขียน Logic แบบ Object-Oriented
+- การแก้ปัญหาด้วย Algorithm
 
 ### 🟡 Level 2: OOP Concepts
-**OOP Shapes**
-- Workshop สร้าง Class: Circle, Rectangle, Triangle
-- ฝึก Inheritance: Shape (Parent) → Circle, Rectangle (Child)
-- ฝึก Polymorphism: Method `calculateArea()` ทำงานต่างกันตาม Shape
-- ฝึก Encapsulation: Private Fields + Public Getters/Setters
 
-**Sorting Demo**
+#### [OOP Shapes](./lab/OOP%20Shapes/)
+Workshop: Object-Oriented Design with Shapes
+- สร้าง Class: Circle, Rectangle, Triangle
+- **Inheritance**: Shape (Parent) → Circle, Rectangle, Triangle (Child)
+- **Polymorphism**: Method `calculateArea()` ทำงานต่างกันตาม Shape
+- **Encapsulation**: Private Fields + Public Getters/Setters
+- ฝึกการออกแบบ Class Hierarchy
+
+#### [Sorting Demo](./lab/Sorting%20Demo/)
+Algorithms + OOP Integration
 - ฝึกการเรียงลำดับ (Bubble Sort, Selection Sort)
 - ประยุกต์ใช้ OOP ในการจัดการข้อมูล
-- ใช้ Collections Framework
+- การใช้ Arrays และ Collections
+- การเปรียบเทียบประสิทธิภาพของ Algorithm
 
 ---
 
 ## 🏆 Mini Projects
 
-โปรเจกต์ที่ประยุกต์ใช้ OOP แบบเต็มรูปแบบ:
+### [Grading System](./mini-project/Grading%20System/)
+**ระบบตัดเกรดนักเรียน** - ประยุกต์ใช้ OOP แบบเต็มรูปแบบ
 
-### ตัวอย่างโปรเจกต์ที่มักมีในวิชานี้
-1. **ระบบตัดเกรด (Grading System)**
-   - Class: Student, Course, Grade
-   - Inheritance: Person → Student, Teacher
-   - Encapsulation: Private grades + Calculate GPA
+**Features:**
+- จัดการข้อมูลนักเรียนและคะแนน
+- คำนวณเกรดอัตโนมัติตามเกณฑ์
+- แสดงรายงานผลการเรียน (Report Card)
 
-2. **ระบบห้องสมุด (Library System)**
-   - Class: Book, Member, Transaction
-   - Inheritance: Media → Book, Magazine, DVD
-   - Encapsulation: Fine calculation logic
+**OOP Concepts ที่ใช้:**
+- **Class Design**: Student, Grade, Course
+- **Encapsulation**: Private score fields + validation
+- **Arrays/Collections**: จัดเก็บนักเรียนหลายคน
+- **Methods**: calculateGPA(), displayReport()
 
-3. **ระบบจัดการสินค้า (Inventory System)**
-   - Class: Product, Category, Stock
-   - Inheritance: Product → Electronics, Food, Clothing
-   - Collections: ArrayList<Product>
+**Files:**
+- `StudentGradeReport.java` - เวอร์ชันพื้นฐาน
+- `StudentGradeReportV2.java` - เวอร์ชันปรับปรุง
+- `StudentGradeReport2D.java` - ใช้ 2D Array
+
+### [Project Borrowing System](./mini-project/Project%20Borrowing%20System/)
+**ระบบจัดการการยืม-คืน** - Inheritance & Polymorphism
+
+**Features:**
+- บันทึกการยืม/คืนสิ่งของ
+- ตรวจสอบสถานะการยืม
+- คำนวณค่าปรับ (ถ้าคืนช้า)
+
+**OOP Concepts ที่ใช้:**
+- **Inheritance**: Item → Book, Equipment
+- **Polymorphism**: การคำนวณค่าปรับต่าง Type
+- **Encapsulation**: ข้อมูลการยืมเป็น Private
+- **Class Relationships**: Member, Item, Transaction
+
+**Files:**
+- `Main.java` - Entry point
+- `Supermain.java` - Extended version
 
 ---
 

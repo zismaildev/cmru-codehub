@@ -214,25 +214,38 @@ Fundamentals-of-Data-Science/
 
 ---
 
-## 📚 Lab Topics
+## 📚 Lab Jupyter Notebooks
 
-### 🟢 Weeks 1-4: Python & Data Basics
-- **Lab 1**: NumPy Arrays & Operations
-- **Lab 2**: Pandas DataFrame Basics
-- **Lab 3**: Data Cleaning & Preprocessing
-- **Lab 4**: Reading Data (CSV, Excel, JSON)
+วิชานี้มี **17+ Labs** เป็น Jupyter Notebooks (.ipynb) ครอบคลุมตั้งแต่พื้นฐานถึงขั้นสูง:
 
-### 🟡 Weeks 5-8: Visualization & EDA
-- **Lab 5**: Matplotlib Charts
-- **Lab 6**: Seaborn Advanced Plots
-- **Lab 7**: Exploratory Data Analysis
-- **Lab 8**: Statistical Analysis
+### 🟢 Python & Data Fundamentals (Lab 1-6)
+- **[Lab 1](./lab/Lab%201/)**: Python Basics for Data Science
+- **[Lab 2](./lab/Lab%202/)**: NumPy Arrays & Operations
+- **[Lab 3](./lab/Lab%203/)**: Pandas DataFrame Basics
+- **[Lab 4](./lab/Lab%204/)**: Data Cleaning & Preprocessing
+- **[Lab 5](./lab/Lab%205/)**: Reading Data (CSV, Excel, JSON)
+- **[Lab 6](./lab/Lab%206/)**: Data Manipulation Techniques
 
-### 🟠 Weeks 9-12: Machine Learning
-- **Lab 9**: Linear Regression
-- **Lab 10**: Classification (Decision Tree, KNN)
-- **Lab 11**: Model Evaluation
-- **Lab 12**: Final Project - Complete Data Analysis
+### 🟡 Visualization & EDA (Lab 7-12)
+- **[Lab 7](./lab/Lab%207/)**: Matplotlib Charts (Line, Bar, Scatter)
+- **[Lab 8](./lab/Lab%208/)**: Seaborn Statistical Plots
+- **[Lab 9](./lab/Lab%209/)**: Exploratory Data Analysis (EDA)
+- **[Lab 10](./lab/Lab%2010/)**: Statistical Analysis
+- **[Lab 11](./lab/Lab%2011/)**: Correlation & Relationships
+- **[Lab 12](./lab/Lab%2012/)**: Advanced Visualization
+
+### 🟠 Machine Learning Basics (Lab 13-17)
+- **[Lab 13](./lab/Lab%2013/)**: Linear Regression
+- **[Lab 14](./lab/Lab%2014/)**: Classification - Decision Tree
+- **[Lab 15](./lab/Lab%2015/)**: K-Nearest Neighbors (KNN)
+- **[Lab 16](./lab/Lab%2016/)**: Model Evaluation Metrics
+- **[Lab 17](./lab/Lab%2017/)**: Complete ML Workflow
+
+### 🔵 Special Topics
+- **[Colab Exercise 1](./lab/Colab%20Exercise%201/)**: Google Colab Tutorial
+- **[Web Scraping Tutorial](./lab/Web%20Scraping%20Tutorial/)**: ดึงข้อมูลจากเว็บ
+
+> **วิธีใช้:** เปิดไฟล์ .ipynb ด้วย Jupyter Notebook หรือ Google Colab สำหรับ Interactive Learning
 
 ---
 
