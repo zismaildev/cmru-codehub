@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'providers/stock_provider.dart';
 import 'screens/portfolio_screen.dart';
+import 'screens/add_transaction_screen.dart';
 
 void main() {
   runApp(const MyStock());
@@ -78,6 +79,7 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Stock Portfolio"),
         backgroundColor: Colors.blue,
+        foregroundColor: Colors.white,
       ),
       body: Consumer<StockProvider>(
         builder: (context, stockProvider, child) {
@@ -157,6 +159,18 @@ class HomeScreen extends StatelessWidget {
             ),
           );
         },
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const AddTransactionScreen(),
+            ),
+          );
+        },
+        backgroundColor: Colors.blue,
+        child: const Icon(Icons.add),
       ),
     );
   }
