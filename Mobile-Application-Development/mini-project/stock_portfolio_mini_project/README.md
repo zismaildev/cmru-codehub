@@ -148,7 +148,7 @@ flutter run
 | PUT | `/api/transactions.php` | แก้ไขธุรกรรม |
 | DELETE | `/api/transactions.php?id=1` | ลบธุรกรรม |
 
-ดูรายละเอียดใน [backend/README.md](backend/README.md)
+ดูรายละเอียดใน [../backend/README.md](../backend/README.md)
 
 ---
 
