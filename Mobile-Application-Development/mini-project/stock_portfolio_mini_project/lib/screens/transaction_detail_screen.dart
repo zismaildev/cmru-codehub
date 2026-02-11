@@ -10,6 +10,9 @@ void _confirmDelete(BuildContext context, String transactionId) {
     context: context,
     builder: (BuildContext dialogContext) {
       return AlertDialog(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12),
+        ),
         title: const Text('ยืนยันการลบ'),
         content: const Text('คุณต้องการลบธุรกรรมนี้หรือไม่?'),
         actions: [
@@ -37,7 +40,10 @@ void _confirmDelete(BuildContext context, String transactionId) {
                 }
               }
             },
-            child: const Text('ลบ', style: TextStyle(color: Colors.red)),
+            child: const Text(
+              'ลบ',
+              style: TextStyle(color: Colors.red),
+            ),
           ),
         ],
       );
@@ -75,8 +81,6 @@ class TransactionDetailScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('รายละเอียด'),
-        backgroundColor: Colors.blue,
-        foregroundColor: Colors.white,
         actions: [
           IconButton(
             icon: const Icon(Icons.edit),
@@ -92,7 +96,7 @@ class TransactionDetailScreen extends StatelessWidget {
             },
           ),
           IconButton(
-            icon: const Icon(Icons.delete),
+            icon: const Icon(Icons.delete_outline),
             onPressed: () => _confirmDelete(context, transaction.id),
           ),
         ],
@@ -102,7 +106,7 @@ class TransactionDetailScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // ชื่อหุ้น
+            // ===== Header =====
             Center(
               child: Column(
                 children: [
@@ -113,94 +117,132 @@ class TransactionDetailScreen extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  const SizedBox(height: 8),
+                  const SizedBox(height: 10),
                   Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 20, vertical: 6),
                     decoration: BoxDecoration(
-                      color: isBuy ? Colors.green : Colors.red,
+                      color: isBuy
+                          ? Colors.green.withOpacity(0.85)
+                          : Colors.red.withOpacity(0.85),
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: Text(
                       isBuy ? 'ซื้อ' : 'ขาย',
                       style: const TextStyle(
                         color: Colors.white,
-                        fontSize: 16,
+                        fontSize: 14,
+                        fontWeight: FontWeight.w500,
                       ),
                     ),
                   ),
                 ],
               ),
             ),
-            const SizedBox(height: 30),
-            
-            // ข้อมูลหุ้น
-            const Text(
-              'ข้อมูลหุ้น',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            const SizedBox(height: 32),
+
+            _section(
+              title: 'ข้อมูลหุ้น',
+              children: [
+                _infoRow('ชื่อหุ้น', transaction.symbol),
+                _infoRow('ตลาดหุ้น', transaction.exchange),
+                _infoRow('ประเภท', isBuy ? 'ซื้อ (Buy)' : 'ขาย (Sell)'),
+              ],
             ),
-            const SizedBox(height: 10),
-            _buildInfoRow('ชื่อหุ้น', transaction.symbol),
-            _buildInfoRow('ตลาดหุ้น', transaction.exchange),
-            _buildInfoRow('ประเภท', isBuy ? 'ซื้อ (Buy)' : 'ขาย (Sell)'),
-            const Divider(height: 30),
-            
-            // ราคาและจำนวน
-            const Text(
-              'ราคาและจำนวน',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+
+            _section(
+              title: 'ราคาและจำนวน',
+              children: [
+                _infoRow(
+                    'ราคาที่ได้',
+                    '\$${transaction.executedPrice.toStringAsFixed(3)}'),
+                _infoRow(
+                    'จำนวนหุ้น',
+                    '${transaction.quantity.toStringAsFixed(7)} หุ้น'),
+                _infoRow(
+                    'มูลค่าหุ้น',
+                    '\$${transaction.grossAmount.toStringAsFixed(2)}'),
+              ],
             ),
-            const SizedBox(height: 10),
-            _buildInfoRow('ราคาที่ได้', '\$${transaction.executedPrice.toStringAsFixed(3)}'),
-            _buildInfoRow('จำนวนหุ้น', '${transaction.quantity.toStringAsFixed(7)} หุ้น'),
-            _buildInfoRow('มูลค่าหุ้น', '\$${transaction.grossAmount.toStringAsFixed(2)}'),
-            const Divider(height: 30),
-            
-            // ค่าใช้จ่าย
-            const Text(
-              'ค่าใช้จ่าย',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+
+            _section(
+              title: 'ค่าใช้จ่าย',
+              children: [
+                _infoRow(
+                    'ค่าคอมมิชชัน',
+                    '\$${transaction.commission.toStringAsFixed(2)}'),
+                _infoRow(
+                    'ภาษี 7%',
+                    '\$${transaction.vat.toStringAsFixed(4)}'),
+                _infoRow(
+                  'รวมยอดจ่าย',
+                  '\$${transaction.netAmount.toStringAsFixed(2)}',
+                  highlight: true,
+                ),
+              ],
             ),
-            const SizedBox(height: 10),
-            _buildInfoRow('ค่าคอมมิชชัน', '\$${transaction.commission.toStringAsFixed(2)}'),
-            _buildInfoRow('ภาษี 7%', '\$${transaction.vat.toStringAsFixed(4)}'),
-            _buildInfoRow(
-              'รวมยอดจ่าย',
-              '\$${transaction.netAmount.toStringAsFixed(2)}',
-              isHighlight: true,
+
+            _section(
+              title: 'ข้อมูลเพิ่มเติม',
+              children: [
+                _infoRow(
+                    'วันที่',
+                    dateFormat.format(
+                        transaction.executionDateTime)),
+                _infoRow(
+                  'ประเภทคำสั่ง',
+                  transaction.orderType == OrderType.market
+                      ? 'ราคาตลาด'
+                      : 'กำหนดราคา',
+                ),
+                _infoRow('บัญชี', transaction.portfolio),
+                _infoRow('เลขที่คำสั่ง', transaction.orderId),
+              ],
             ),
-            const Divider(height: 30),
-            
-            // ข้อมูลเพิ่มเติม
-            const Text(
-              'ข้อมูลเพิ่มเติม',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 10),
-            _buildInfoRow('วันที่', dateFormat.format(transaction.executionDateTime)),
-            _buildInfoRow(
-              'ประเภทคำสั่ง',
-              transaction.orderType == OrderType.market ? 'ราคาตลาด' : 'กำหนดราคา',
-            ),
-            _buildInfoRow('บัญชี', transaction.portfolio),
-            _buildInfoRow('เลขที่คำสั่ง', transaction.orderId),
           ],
         ),
       ),
     );
   }
 
-  Widget _buildInfoRow(String label, String value, {bool isHighlight = false}) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8),
-      child: Row(
+  Widget _section({
+    required String title,
+    required List<Widget> children,
+  }) {
+    return Container(
+      margin: const EdgeInsets.only(bottom: 24),
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            title,
+            style:
+                const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 12),
+          ...children,
+        ],
+      ),
+    );
+  }
+
+  Widget _infoRow(String label, String value,
+      {bool highlight = false}) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 6),
+      child: Row(
         children: [
           Expanded(
             flex: 2,
             child: Text(
               label,
               style: const TextStyle(
-                fontSize: 14,
+                fontSize: 13,
                 color: Colors.grey,
               ),
             ),
@@ -209,12 +251,14 @@ class TransactionDetailScreen extends StatelessWidget {
             flex: 3,
             child: Text(
               value,
-              style: TextStyle(
-                fontSize: isHighlight ? 18 : 16,
-                fontWeight: isHighlight ? FontWeight.bold : FontWeight.normal,
-                color: isHighlight ? Colors.blue : Colors.black,
-              ),
               textAlign: TextAlign.right,
+              style: TextStyle(
+                fontSize: highlight ? 18 : 15,
+                fontWeight:
+                    highlight ? FontWeight.bold : FontWeight.normal,
+                color:
+                    highlight ? const Color(0xFF3F51B5) : Colors.black,
+              ),
             ),
           ),
         ],

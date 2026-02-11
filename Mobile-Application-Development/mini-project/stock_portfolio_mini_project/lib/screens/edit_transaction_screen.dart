@@ -13,13 +13,16 @@ class EditTransactionScreen extends StatefulWidget {
   });
 
   @override
-  State<EditTransactionScreen> createState() => _EditTransactionScreenState();
+  State<EditTransactionScreen> createState() =>
+      _EditTransactionScreenState();
 }
 
-class _EditTransactionScreenState extends State<EditTransactionScreen> {
+class _EditTransactionScreenState
+    extends State<EditTransactionScreen> {
+
   final _formKey = GlobalKey<FormState>();
-  
-  // Form fields
+
+  // Form fields (logic เดิม)
   late String _symbol;
   late String _exchange;
   late TransactionSide _side;
@@ -30,13 +33,14 @@ class _EditTransactionScreenState extends State<EditTransactionScreen> {
   late DateTime _executionDateTime;
   late OrderType _orderType;
   late String _portfolio;
-  
+
   bool _isLoading = false;
 
   @override
   void initState() {
     super.initState();
-    // Pre-fill ข้อมูลเดิม
+
+    // Pre-fill ข้อมูลเดิม (logic เดิม)
     _symbol = widget.transaction.symbol;
     _exchange = widget.transaction.exchange;
     _side = widget.transaction.side;
@@ -44,15 +48,16 @@ class _EditTransactionScreenState extends State<EditTransactionScreen> {
     _quantity = widget.transaction.quantity;
     _commission = widget.transaction.commission;
     _vat = widget.transaction.vat;
-    _executionDateTime = widget.transaction.executionDateTime;
+    _executionDateTime =
+        widget.transaction.executionDateTime;
     _orderType = widget.transaction.orderType;
     _portfolio = widget.transaction.portfolio;
   }
 
-  // คำนวณ Gross Amount
-  double get _grossAmount => _executedPrice * _quantity;
-  
-  // คำนวณ Net Amount
+  // logic เดิม
+  double get _grossAmount =>
+      _executedPrice * _quantity;
+
   double get _netAmount {
     if (_side == TransactionSide.buy) {
       return _grossAmount + _commission + _vat;
@@ -66,205 +71,236 @@ class _EditTransactionScreenState extends State<EditTransactionScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('แก้ไขธุรกรรม'),
-        backgroundColor: Colors.blue,
-        foregroundColor: Colors.white,
       ),
       body: _isLoading
-          ? const Center(child: CircularProgressIndicator())
+          ? const Center(
+              child: CircularProgressIndicator())
           : SingleChildScrollView(
               padding: const EdgeInsets.all(16),
               child: Form(
                 key: _formKey,
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // Symbol
-                    TextFormField(
-                      initialValue: _symbol,
-                      decoration: const InputDecoration(
-                        labelText: 'ชื่อหุ้น (Symbol)',
-                      ),
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'กรุณากรอกชื่อหุ้น';
-                        }
-                        return null;
-                      },
-                      onSaved: (value) => _symbol = value!.toUpperCase(),
-                    ),
-                    const SizedBox(height: 16),
 
-                    // Exchange
-                    DropdownButtonFormField<String>(
-                      value: _exchange,
-                      decoration: const InputDecoration(labelText: 'ตลาดหุ้น'),
-                      items: ['NASDAQ', 'NYSE', 'SET']
-                          .map((e) => DropdownMenuItem(value: e, child: Text(e)))
-                          .toList(),
-                      onChanged: (value) => setState(() => _exchange = value!),
-                    ),
-                    const SizedBox(height: 16),
-
-                    // Side (Buy/Sell)
-                    DropdownButtonFormField<TransactionSide>(
-                      value: _side,
-                      decoration: const InputDecoration(labelText: 'ประเภท'),
-                      items: const [
-                        DropdownMenuItem(
-                          value: TransactionSide.buy,
-                          child: Text('ซื้อ (Buy)'),
-                        ),
-                        DropdownMenuItem(
-                          value: TransactionSide.sell,
-                          child: Text('ขาย (Sell)'),
-                        ),
-                      ],
-                      onChanged: (value) => setState(() => _side = value!),
-                    ),
-                    const SizedBox(height: 16),
-
-                    // Executed Price
-                    TextFormField(
-                      initialValue: _executedPrice.toString(),
-                      decoration: const InputDecoration(
-                        labelText: 'ราคาที่ได้ (USD)',
-                        prefixText: '\$ ',
-                      ),
-                      keyboardType: TextInputType.number,
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'กรุณากรอกราคา';
-                        }
-                        if (double.tryParse(value) == null) {
-                          return 'กรุณากรอกตัวเลข';
-                        }
-                        return null;
-                      },
-                      onChanged: (value) => setState(() {
-                        _executedPrice = double.tryParse(value) ?? _executedPrice;
-                      }),
-                    ),
-                    const SizedBox(height: 16),
-
-                    // Quantity
-                    TextFormField(
-                      initialValue: _quantity.toString(),
-                      decoration: const InputDecoration(
-                        labelText: 'จำนวนหุ้น',
-                      ),
-                      keyboardType: TextInputType.number,
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'กรุณากรอกจำนวน';
-                        }
-                        if (double.tryParse(value) == null) {
-                          return 'กรุณากรอกตัวเลข';
-                        }
-                        return null;
-                      },
-                      onChanged: (value) => setState(() {
-                        _quantity = double.tryParse(value) ?? _quantity;
-                      }),
-                    ),
-                    const SizedBox(height: 16),
-
-                    // Commission
-                    TextFormField(
-                      initialValue: _commission.toString(),
-                      decoration: const InputDecoration(
-                        labelText: 'ค่าคอมมิชชัน (USD)',
-                        prefixText: '\$ ',
-                      ),
-                      keyboardType: TextInputType.number,
-                      onChanged: (value) => setState(() {
-                        _commission = double.tryParse(value) ?? _commission;
-                      }),
-                    ),
-                    const SizedBox(height: 16),
-
-                    // VAT
-                    TextFormField(
-                      initialValue: _vat.toString(),
-                      decoration: const InputDecoration(
-                        labelText: 'ภาษี 7% (USD)',
-                        prefixText: '\$ ',
-                      ),
-                      keyboardType: TextInputType.number,
-                      onChanged: (value) => setState(() {
-                        _vat = double.tryParse(value) ?? _vat;
-                      }),
-                    ),
-                    const SizedBox(height: 16),
-
-                    // Execution DateTime
-                    ListTile(
-                      title: const Text('วันที่ทำรายการ'),
-                      subtitle: Text(
-                        DateFormat('dd/MM/yyyy HH:mm').format(_executionDateTime),
-                      ),
-                      trailing: const Icon(Icons.calendar_today),
-                      onTap: _selectDateTime,
-                    ),
-                    const SizedBox(height: 16),
-
-                    // Order Type
-                    DropdownButtonFormField<OrderType>(
-                      value: _orderType,
-                      decoration: const InputDecoration(labelText: 'ประเภทคำสั่ง'),
-                      items: const [
-                        DropdownMenuItem(
-                          value: OrderType.market,
-                          child: Text('ราคาตลาด (Market)'),
-                        ),
-                        DropdownMenuItem(
-                          value: OrderType.limit,
-                          child: Text('กำหนดราคา (Limit)'),
-                        ),
-                      ],
-                      onChanged: (value) => setState(() => _orderType = value!),
-                    ),
-                    const SizedBox(height: 24),
-
-                    // Summary
-                    Container(
-                      padding: const EdgeInsets.all(16),
-                      color: Colors.blue[50],
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                    /// CARD SYMBOL / EXCHANGE / SIDE
+                    _card(
+                      Column(
                         children: [
-                          const Text(
-                            'สรุป',
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
+
+                          _field(
+                            child: TextFormField(
+                              initialValue: _symbol,
+                              decoration:
+                                  const InputDecoration(
+                                labelText:
+                                    'ชื่อหุ้น (Symbol)',
+                                hintText:
+                                    'เช่น AAPL, NVDA',
+                              ),
+                              validator: (v) =>
+                                  v == null || v.isEmpty
+                                      ? 'กรุณากรอกชื่อหุ้น'
+                                      : null,
+                              onSaved: (v) => _symbol =
+                                  v!.toUpperCase(),
                             ),
                           ),
-                          const SizedBox(height: 8),
-                          _buildSummaryRow('มูลค่าหุ้น', '\$${_grossAmount.toStringAsFixed(2)}'),
-                          _buildSummaryRow('ค่าใช้จ่าย', '\$${(_commission + _vat).toStringAsFixed(4)}'),
-                          const Divider(),
-                          _buildSummaryRow(
-                            'รวมยอด',
-                            '\$${_netAmount.toStringAsFixed(2)}',
-                            isBold: true,
+
+                          _gap(),
+
+                          _field(
+                            child:
+                                DropdownButtonFormField<
+                                    String>(
+                              value: _exchange,
+                              decoration:
+                                  const InputDecoration(
+                                labelText:
+                                    'ตลาดหุ้น',
+                              ),
+                              items: [
+                                'NASDAQ',
+                                'NYSE',
+                                'SET'
+                              ]
+                                  .map(
+                                    (e) =>
+                                        DropdownMenuItem(
+                                      value: e,
+                                      child:
+                                          Text(e),
+                                    ),
+                                  )
+                                  .toList(),
+                              onChanged: (v) =>
+                                  setState(() =>
+                                      _exchange = v!),
+                            ),
+                          ),
+
+                          _gap(),
+
+                          _field(
+                            child:
+                                DropdownButtonFormField<
+                                    TransactionSide>(
+                              value: _side,
+                              decoration:
+                                  const InputDecoration(
+                                labelText:
+                                    'ประเภท',
+                              ),
+                              items: const [
+                                DropdownMenuItem(
+                                  value:
+                                      TransactionSide
+                                          .buy,
+                                  child: Text(
+                                      'ซื้อ (Buy)'),
+                                ),
+                                DropdownMenuItem(
+                                  value:
+                                      TransactionSide
+                                          .sell,
+                                  child: Text(
+                                      'ขาย (Sell)'),
+                                ),
+                              ],
+                              onChanged: (v) =>
+                                  setState(() =>
+                                      _side = v!),
+                            ),
                           ),
                         ],
                       ),
                     ),
-                    const SizedBox(height: 24),
 
-                    // Save Button
+                    _gapLarge(),
+
+                    /// CARD PRICE / QTY / COMMISSION / VAT
+                    _card(
+                      Column(
+                        children: [
+
+                          _numberField(
+                            label:
+                                'ราคาที่ได้ (USD)',
+                            prefix: '\$ ',
+                            initial:
+                                _executedPrice
+                                    .toString(),
+                            onChanged: (v) =>
+                                setState(() =>
+                                    _executedPrice =
+                                        double.tryParse(
+                                                v) ??
+                                            _executedPrice),
+                          ),
+
+                          _gap(),
+
+                          _numberField(
+                            label: 'จำนวนหุ้น',
+                            initial:
+                                _quantity
+                                    .toString(),
+                            onChanged: (v) =>
+                                setState(() =>
+                                    _quantity =
+                                        double.tryParse(
+                                                v) ??
+                                            _quantity),
+                          ),
+
+                          _gap(),
+
+                          _numberField(
+                            label:
+                                'ค่าคอมมิชชัน',
+                            prefix: '\$ ',
+                            initial:
+                                _commission
+                                    .toString(),
+                            onChanged: (v) =>
+                                setState(() =>
+                                    _commission =
+                                        double.tryParse(
+                                                v) ??
+                                            _commission),
+                          ),
+
+                          _gap(),
+
+                          _numberField(
+                            label: 'ภาษี 7%',
+                            prefix: '\$ ',
+                            initial:
+                                _vat.toString(),
+                            onChanged: (v) =>
+                                setState(() =>
+                                    _vat =
+                                        double.tryParse(
+                                                v) ??
+                                            _vat),
+                          ),
+                        ],
+                      ),
+                    ),
+
+                    _gapLarge(),
+
+                    /// CARD SUMMARY
+                    _card(
+                      Column(
+                        crossAxisAlignment:
+                            CrossAxisAlignment
+                                .start,
+                        children: [
+
+                          const Text(
+                            'สรุป',
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight:
+                                  FontWeight.bold,
+                            ),
+                          ),
+
+                          const SizedBox(
+                              height: 12),
+
+                          _row(
+                            'มูลค่าหุ้น',
+                            '\$${_grossAmount.toStringAsFixed(2)}',
+                          ),
+
+                          _row(
+                            'ค่าใช้จ่าย',
+                            '\$${(_commission + _vat).toStringAsFixed(4)}',
+                          ),
+
+                          const Divider(),
+
+                          _row(
+                            'รวมยอด',
+                            '\$${_netAmount.toStringAsFixed(2)}',
+                            bold: true,
+                            highlight: true,
+                          ),
+                        ],
+                      ),
+                    ),
+
+                    _gapLarge(),
+
+                    /// BUTTON SAVE
                     SizedBox(
                       width: double.infinity,
                       child: ElevatedButton(
-                        onPressed: _updateTransaction,
-                        style: ElevatedButton.styleFrom(
-                          padding: const EdgeInsets.all(16),
-                        ),
+                        onPressed:
+                            _updateTransaction,
                         child: const Text(
-                          'บันทึกการแก้ไข',
-                          style: TextStyle(fontSize: 16),
-                        ),
+                            'บันทึกการแก้ไข'),
                       ),
                     ),
                   ],
@@ -274,18 +310,77 @@ class _EditTransactionScreenState extends State<EditTransactionScreen> {
     );
   }
 
-  Widget _buildSummaryRow(String label, String value, {bool isBold = false}) {
+  /// UI HELPERS (เหมือนหน้า Add 100%)
+
+  Widget _card(Widget child) =>
+      Container(
+        padding:
+            const EdgeInsets.all(16),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius:
+              BorderRadius.circular(12),
+        ),
+        child: child,
+      );
+
+  Widget _gap() =>
+      const SizedBox(height: 12);
+
+  Widget _gapLarge() =>
+      const SizedBox(height: 20);
+
+  Widget _field(
+          {required Widget child}) =>
+      child;
+
+  Widget _numberField({
+    required String label,
+    String? prefix,
+    String? initial,
+    required Function(String)
+        onChanged,
+  }) {
+    return TextFormField(
+      initialValue: initial,
+      decoration: InputDecoration(
+        labelText: label,
+        prefixText: prefix,
+      ),
+      keyboardType:
+          TextInputType.number,
+      onChanged: onChanged,
+    );
+  }
+
+  Widget _row(
+    String l,
+    String v, {
+    bool bold = false,
+    bool highlight = false,
+  }) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 4),
+      padding:
+          const EdgeInsets.symmetric(
+              vertical: 6),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment:
+            MainAxisAlignment
+                .spaceBetween,
         children: [
-          Text(label),
+          Text(l),
           Text(
-            value,
+            v,
             style: TextStyle(
-              fontWeight: isBold ? FontWeight.bold : FontWeight.normal,
-              fontSize: isBold ? 16 : 14,
+              fontWeight: bold
+                  ? FontWeight.bold
+                  : FontWeight.normal,
+              fontSize:
+                  bold ? 16 : 14,
+              color: highlight
+                  ? const Color(
+                      0xFF3F51B5)
+                  : null,
             ),
           ),
         ],
@@ -293,74 +388,76 @@ class _EditTransactionScreenState extends State<EditTransactionScreen> {
     );
   }
 
-  Future<void> _selectDateTime() async {
-    final date = await showDatePicker(
-      context: context,
-      initialDate: _executionDateTime,
-      firstDate: DateTime(2020),
-      lastDate: DateTime.now(),
-    );
-
-    if (date != null && mounted) {
-      final time = await showTimePicker(
-        context: context,
-        initialTime: TimeOfDay.fromDateTime(_executionDateTime),
-      );
-
-      if (time != null) {
-        setState(() {
-          _executionDateTime = DateTime(
-            date.year,
-            date.month,
-            date.day,
-            time.hour,
-            time.minute,
-          );
-        });
-      }
-    }
-  }
-
-  Future<void> _updateTransaction() async {
-    if (!_formKey.currentState!.validate()) {
+  /// LOGIC เดิม 100%
+  Future<void>
+      _updateTransaction() async {
+    if (!_formKey.currentState!
+        .validate()) {
       return;
     }
 
     _formKey.currentState!.save();
 
-    setState(() => _isLoading = true);
+    setState(
+        () => _isLoading = true);
 
     try {
-      final updatedTransaction = StockTransaction(
+      final updatedTransaction =
+          StockTransaction(
         id: widget.transaction.id,
         symbol: _symbol,
         exchange: _exchange,
         side: _side,
-        executedPrice: _executedPrice,
+        executedPrice:
+            _executedPrice,
         quantity: _quantity,
-        grossAmount: _grossAmount,
-        commission: _commission,
+        grossAmount:
+            _grossAmount,
+        commission:
+            _commission,
         vat: _vat,
-        executionDateTime: _executionDateTime,
-        orderType: _orderType,
-        portfolio: _portfolio,
-        orderId: widget.transaction.orderId,
+        executionDateTime:
+            _executionDateTime,
+        orderType:
+            _orderType,
+        portfolio:
+            _portfolio,
+        orderId: widget
+            .transaction.orderId,
       );
 
-      final provider = Provider.of<StockProvider>(context, listen: false);
-      await provider.updateTransaction(updatedTransaction);
+      final provider =
+          Provider.of<StockProvider>(
+        context,
+        listen: false,
+      );
+
+      await provider
+          .updateTransaction(
+              updatedTransaction);
 
       if (mounted) {
         Navigator.pop(context);
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('บันทึกสำเร็จ')),
+
+        ScaffoldMessenger.of(context)
+            .showSnackBar(
+          const SnackBar(
+            content:
+                Text('บันทึกสำเร็จ'),
+          ),
         );
       }
     } catch (e) {
       if (mounted) {
-        setState(() => _isLoading = false);
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('เกิดข้อผิดพลาด: $e')),
+        setState(() =>
+            _isLoading = false);
+
+        ScaffoldMessenger.of(context)
+            .showSnackBar(
+          SnackBar(
+            content: Text(
+                'เกิดข้อผิดพลาด: $e'),
+          ),
         );
       }
     }
