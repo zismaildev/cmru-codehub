@@ -111,6 +111,7 @@ Highlighted projects demonstrating architectural decisions, pattern implementati
 | **COM 1602** | **[Database System 1](./Database-System-1)** | [![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)](https://www.mysql.com/) |
 | **COM 3410** | **[Fundamentals of Data Science](./Fundamentals-of-Data-Science)** | [![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/) [![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)](https://pandas.pydata.org/) |
 | **COM 4501** | **[Software Testing](./Software-Testing)** | [![Robot Framework](https://img.shields.io/badge/Robot%20Framework-00C0B5?style=for-the-badge&logo=robot-framework&logoColor=white)](https://robotframework.org/) |
+| **COM 4402** | **[Computer and Network Security](./Computer-and-Network-Security)** | [![PHP](https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white)](https://www.php.net/) [![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)](https://www.mysql.com/) |
 
 ---
 
