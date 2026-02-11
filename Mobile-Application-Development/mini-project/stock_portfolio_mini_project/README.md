@@ -32,22 +32,17 @@
 
 ## 🏗️ Architecture
 
-### Frontend (Flutter)
+### Structure
 ```
-lib/
-├── models/              # Data models
-├── providers/           # State management (Provider)
-├── services/            # API service
-├── screens/             # UI screens
-└── main.dart            # Entry point
-```
-
-### Backend (PHP + MySQL)
-```
-backend/
-├── api/                 # REST API endpoints
-├── config/              # Database configuration
-└── database/            # SQL schema
+mini-project/
+├── backend/             # PHP Backend (Sibling folder)
+│   ├── api/
+│   ├── config/
+│   └── database/
+└── stock_portfolio_mini_project/  # Flutter Project (Current)
+    ├── lib/
+    ├── pubspec.yaml
+    └── README.md
 ```
 
 ---
@@ -69,12 +64,16 @@ cd stock_portfolio_mini_project
 ```bash
 # ติดตั้ง XAMPP และเปิด Apache + MySQL
 
-# Copy backend folder ไป htdocs
+# Copy backend folder (ที่อยู่ด้านนอก) ไป htdocs
+# สมมติว่าคุณอยู่ที่โฟลเดอร์ mini-project
 cp -r backend C:/xampp/htdocs/stock_portfolio_api
+
+# หรือถ้าอยู่ในโฟลเดอร์นี้ (stock_portfolio_mini_project)
+cp -r ../backend C:/xampp/htdocs/stock_portfolio_api
 
 # Import database
 # เปิด http://localhost/phpmyadmin
-# Import: backend/database/stock_portfolio.sql
+# Import: ../backend/database/stock_portfolio.sql
 ```
 
 ### 3. Setup Frontend
@@ -183,19 +182,20 @@ flutter run -d windows         # Windows Desktop
 ## 📂 Project Structure
 
 ```
-stock_portfolio_mini_project/
-├── backend/                   # PHP Backend
+mini-project/
+├── backend/                   # PHP Backend (อยู่นอกโฟลเดอร์โปรเจกต์นี้)
 │   ├── api/
 │   ├── config/
 │   └── database/
-├── lib/                       # Flutter App
-│   ├── models/
-│   ├── providers/
-│   ├── services/
-│   ├── screens/
-│   └── main.dart
-├── pubspec.yaml              # Dependencies
-└── README.md                 # This file
+└── stock_portfolio_mini_project/ # โฟลเดอร์โปรเจกต์ Flutter
+    ├── lib/
+    │   ├── models/
+    │   ├── providers/
+    │   ├── services/
+    │   ├── screens/
+    │   └── main.dart
+    ├── pubspec.yaml
+    └── README.md
 ```
 
 ---
